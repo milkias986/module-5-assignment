@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Work Day Scheduler</title>
+  <style>
+    .time-block {
+      width: 90%;
+      height: 100px;
+      margin: 10px auto;
+      background-color: #f2f2f2;
+      border: 1px solid #c5c5c5;
+      border-radius: 5px;
+    }
+
+    .hour {
+      width: 20%;
+      float: left;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      padding-top: 30px;
+    }
+
+    .task {
+      width: 70%;
+      float: left;
+      background-color: white;
+      border: 1px solid #c5c5c5;
+      border-radius: 5px;
+      padding: 15px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .saveBtn {
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      float: right;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="text-center">Work Day Scheduler</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">9AM</div>
+          <textarea class="task" id="9"></textarea>
+          <button class="saveBtn" id="9Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">10AM</div>
+          <textarea class="task" id="10"></textarea>
+          <button class="saveBtn" id="10Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">11AM</div>
+          <textarea class="task" id="11"></textarea>
+          <button class="saveBtn" id="11Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">12PM</div>
+          <textarea class="task" id="12"></textarea>
+          <button class="saveBtn" id="12Btn">Save</button>
+        </div>
+      </div>
+    </div
+      <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">1PM</div>
+          <textarea class="task" id="13"></textarea>
+          <button class="saveBtn" id="13Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">2PM</div>
+          <textarea class="task" id="14"></textarea>
+          <button class="saveBtn" id="14Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">3PM</div>
+          <textarea class="task" id="15"></textarea>
+          <button class="saveBtn" id="15Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">4PM</div>
+          <textarea class="task" id="16"></textarea>
+          <button class="saveBtn" id="16Btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="time-block">
+          <div class="hour">5PM</div>
+          <textarea class="task" id="17"></textarea>
+          <button class="saveBtn" id="17Btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Save tasks to local storage when save button is clicked
+    $(".saveBtn").on("click", function() {
+      let timeBlockId = $(this).attr("id").slice(0, -3);
+      localStorage.setItem(timeBlockId, $("#" + timeBlockId).val());
+    });
+
+    // Load tasks from local storage when page is loaded
+    $(document).ready(function() {
+      $("#9").val(localStorage.getItem("9"));
+      $("#10").val(localStorage.getItem("10"));
+      $("#11").val(localStorage.getItem("11"));
+      $("#12").val(localStorage.getItem("12"));
+      $("#13").val(localStorage.getItem("13"));
+      $("#14").val(localStorage.getItem("14"));
+      $("#15").val(localStorage.getItem("15"));
+      $("#16").val(localStorage.getItem("16"));
+      $("#17").val(localStorage.getItem("17"));
+    });
+  </script>
+</body>
+</html>
